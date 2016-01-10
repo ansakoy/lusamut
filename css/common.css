@@ -4,21 +4,23 @@ html {
     
     font: normal 100%/1.4 Georgia,serif;
 }
-nav {
-  background-color: #415F69;
-  padding: 5px;
-  margin-top: 1px;
-}
+
 .navigation {
   display: inline;
   margin-left: 15px;
   margin-right: 15px;
-  font-size: 20px;
-  font-variant: small-caps;
-  font-weight: bold;
-  color: #C5D0D4;
+  
 }
 .current {
     background-color: #5A808C;
     color: #FFFFFF;
+}
+.nav-top {
+  background-color: #415F69;
+  padding: 5px;
+  margin-top: 1px;
+  font-size: 20px;
+  font-variant: small-caps;
+  font-weight: bold;
+  color: #C5D0D4;
 }
