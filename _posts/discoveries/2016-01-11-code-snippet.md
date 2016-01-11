@@ -3,7 +3,7 @@ layout: updates
 title: Hello world
 meta: yet another helloworld
 source: http://www.datadrivenjournalism.ru/
-category: discovries
+category: discoveries
 ---
 
 # Code snippet
