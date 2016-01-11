@@ -1,5 +1,5 @@
 ---
-layout: news
+layout: news-article
 title: Hello world
 meta: yet another helloworld
 source: http://www.datadrivenjournalism.ru/

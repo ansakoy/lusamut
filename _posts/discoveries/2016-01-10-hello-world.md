@@ -1,5 +1,5 @@
 ---
-layout: news
+layout: news-article
 title: Hello world
 meta: test post
 source: http://www.datadrivenjournalism.ru/
