@@ -2,3 +2,13 @@
 layout: default
 ---
 <h1>Updates</h1>
+
+<ul>
+    {% for post in site.posts %}
+    <li>
+        <a href="">{{updates.title}}</a>
+        <p>updates.meta</p>
+        <p>updates.category</p>
+    </li>
+    {% endfor %}
+</ul>
