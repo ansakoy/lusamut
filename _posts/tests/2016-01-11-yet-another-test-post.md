@@ -3,7 +3,7 @@ layout: updates
 title: Yet Another Test Post
 meta: test post
 source: http://www.datadrivenjournalism.ru/
-category: [test, news]
+category: test
 ---
 
 # Yet Another Test Post

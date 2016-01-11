@@ -4,3 +4,11 @@ layout: default
 
 <h1>Under construction</h1>
 <p>Продолжаем издеваться над страницей</p>
+<ul>
+    {% for post in site.categories.discoveries limit: 2 %}
+    <li>
+        <a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a>
+        <p>{{post.meta}}</p>
+    </li>
+    {% endfor %}
+</ul>
