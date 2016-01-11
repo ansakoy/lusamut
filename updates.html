@@ -7,7 +7,7 @@ layout: news
     {% for post in site.categories.test %}
     <li>
         <a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a>
-        <p>{{post.meta}}</p>
+        <p>{{post.content}}</p>
     </li>
     {% endfor %}
 </ul>
