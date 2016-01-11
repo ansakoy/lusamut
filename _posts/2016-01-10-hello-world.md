@@ -3,7 +3,7 @@ layout: news
 title: Hello world
 meta: test post
 source: http://www.datadrivenjournalism.ru/
-category: news
+category: test
 ---
 
 # Hello world
