@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Test Map</title>
+        <meta charset="utf-8" />
+        <link href="https://rawgit.com/andrewgiessel/leafletstuff/master/leaflet.css" type="text/css" rel=stylesheet>
+        <style>
+		#map {
+			width: 550px;
+			height: 380px;
+		}
+
+		.info {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255,255,255,0.8);
+			box-shadow: 0 0 15px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+
+		.legend {
+			text-align: left;
+			line-height: 18px;
+			color: #555;
+		}
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+	</style>
+        
+    </head>
+    
+    <body>
+        <div id="map"></div>
+
+	<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script type="text/javascript" src="nyt_countries2015.js"></script>
+    <script type="text/javascript" src="nyt_countries2014.js"></script>
+    <script type="text/javascript" src="nyt_countries2013.js"></script>
+    <script type="text/javascript" src="nyt_countries2012.js"></script>
+
+	
+        <script type="text/javascript">
+            
+            
+
+            
+            var geojson2012
+
+		function resetHighlight(e) {
+			geojson2012.resetStyle(e.target);
+			info.update();
+		}
+
+            geojson2012 = L.geoJson(nyt_countries2012, {
+			style: style,
+			onEachFeature: onEachFeature
+		});
+        
+            var geojson2013
+
+		function resetHighlight(e) {
+			geojson2013.resetStyle(e.target);
+			info.update();
+		}
+
+            geojson2013 = L.geoJson(nyt_countries2013, {
+			style: style,
+			onEachFeature: onEachFeature
+		});            
+
+            
+            var geojson2014
+
+		function resetHighlight(e) {
+			geojson2014.resetStyle(e.target);
+			info.update();
+		}
+
+            geojson2014 = L.geoJson(nyt_countries2014, {
+			style: style,
+			onEachFeature: onEachFeature
+		});
+            
+            
+            var geojson2015
+            function resetHighlight(e) {
+			geojson2015.resetStyle(e.target);
+			info.update();
+		}
+
+		
+            geojson2015 = L.geoJson(nyt_countries2015, {
+			style: style,
+			onEachFeature: onEachFeature
+		});
+            
+            
+            function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+		}
+
+		function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+            
+            
+            var baseLayers = {
+                "2015": geojson2015,
+                "2014": geojson2014,
+                "2013": geojson2013,
+                "2012": geojson2012
+                
+            };
+            var map = L.map('map',{
+                center: [30.8, 3.0],
+                zoom: 2,
+                layers: geojson2015
+            });
+
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data (c) <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            L.control.layers(baseLayers).addTo(map)
+            
+            		// control that shows state info on hover
+		var info = L.control({position: 'bottomleft'});
+
+		info.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info');
+			this.update();
+			return this._div;
+		};
+
+		info.update = function (props) {
+			this._div.innerHTML = '<h4>Характеристика:</h4>' +  (props ?
+				'<b> Страна: </b>' + props.ru_name + '<br /><b> Материалов: </b>' + props.num_occurrences + '<br /><b> Год: </b>' + props.year
+				: 'Наведите мышку на страну');
+		};
+
+		info.addTo(map);
+
+
+		// get color depending on population density value
+		function getColor(d) {
+			return d > 6000 ? '#0c2c84' :
+			       d > 5000  ? '#225ea8' :
+			       d > 4000  ? '#1d91c0' :
+			       d > 3000  ? '#41b6c4' :
+			       d > 2000   ? '#7fcdbb' :
+			       d > 1000   ? '#c7e9b4' :
+			       d > 500   ? '#edf8b1' :
+			                  '#ffffd9';
+		}
+
+		function style(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				dashArray: '3',
+				fillOpacity: 0.7,
+				fillColor: getColor(feature.properties.num_occurrences)
+			};
+		}
+
+		function highlightFeature(e) {
+			var layer = e.target;
+
+			layer.setStyle({
+				weight: 5,
+				color: '#666',
+				dashArray: '',
+				fillOpacity: 0.7
+			});
+
+			if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
+			}
+
+			info.update(layer.feature.properties);
+		}
+  
+            
+            
+
+		map.attributionControl.addAttribution('NY Times; <a href="	http://api.nytimes.com/svc/search/v2/articlesearch">API</a>');
+            var legend = L.control({position: 'bottomright'});
+
+		legend.onAdd = function (map) {
+
+			var div = L.DomUtil.create('div', 'info legend'),
+				grades = [0, 500, 1000, 2000, 3000, 4000, 5000, 6000],
+				labels = [],
+				from, to;
+
+			for (var i = 0; i < grades.length; i++) {
+				from = grades[i];
+				to = grades[i + 1];
+
+				labels.push(
+					'<i style="background:' + getColor(from + 1) + '"></i> ' +
+					from + (to ? '&ndash;' + to : '+'));
+			}
+
+			div.innerHTML = labels.join('<br>');
+			return div;
+		};
+
+		legend.addTo(map);
+
+        </script>
+        
+        
+    </body>
+</html>
