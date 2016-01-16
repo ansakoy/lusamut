@@ -12,7 +12,7 @@ category: discoveries
 print 'hello world'
 ```
 
-{% highlight ruby %}
+{% highlight ruby linenos %}
 def foo
   puts 'foo'
 end
