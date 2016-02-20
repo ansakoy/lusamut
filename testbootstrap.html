@@ -3,7 +3,7 @@
     <head>
         <title>Ad Catilinam</title>
         <meta name='viewport' content="width=device-width, initial-scale=1.0">
-        <!-- Font Awesome -->
+<!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -13,8 +13,17 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <style type="text/css">
             body {
                 padding-top: 40px;
+            }
+            .row {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+            section {
+                margin-left: 5%;
+                margin-right: 5%;
             }
         </style>
     </head>
@@ -29,7 +38,7 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a href='' class='navbar-brand'>Portfolio</a>
+            <a href='' class='navbar-brand'>Ad Catilinam</a>
         </div><!-- End navbar-header -->
         <div class='collapse navbar-collapse' id='navbar-collapse'> <!-- What will collapse -->
             <ul class='nav navbar-nav  navbar-right'> <!-- Nav elements -->
@@ -60,23 +69,60 @@
 
 <!-- About -->
 
-<div class='container'>
+<div class='container'  id='about'>
     <section>
-        <div class='page-header' id='about'>
-            <h2>About me</h2>
-            <div class='row'>
-                <div class='col-md-5'>
-                    <img src='http://i.imgur.com/buNRhVz.jpg' style='max-height: 200px' class='img-responsive img-rounded'>
-                </div>
-                <div class='col-md-7'>
-                    <p>Quo usque tandem abutere, Catilina, patientia nostra? quam diu etiam furor iste tuus nos eludet? quem ad finem sese effrenata iactabit audacia? Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt?</p>
-                </div>
-            </div>
-        </div>
+        <div class='page-header'>
+            <h2 class='text-right'><small>About</small></h2>
+        </div> <!-- End page-header -->
+        <div class='row'>
+            <div class='col-xs-5 col-sm-5 col-md-5 col-lg-5'>
+                <img src='http://i.imgur.com/buNRhVz.jpg' style='max-height: 300px' class='img-responsive img-rounded'>
+            </div> <!-- End .col-1 -->
+            <div class='col-xs-7 col-sm-7 col-md-7 col-lg-7'>
+                <p>Quo usque tandem abutere, Catilina, patientia nostra? quam diu etiam furor iste tuus nos eludet? quem ad finem sese effrenata iactabit audacia? Nihilne te nocturnum praesidium Palati, nihil urbis vigiliae, nihil timor populi, nihil concursus bonorum omnium, nihil hic munitissimus habendi senatus locus, nihil horum ora voltusque moverunt?</p>
+            </div> <!-- End .col-2 -->
+        </div> <!-- End row -->
+        
     </section>
 </div> <!-- End container -->
 
 <!-- End about -->
+
+<!-- Portfolio -->
+    
+<div class='container' id='portfolio'>
+    <section>
+        <div class="page-header">
+            <h2 class='text-right'><small>Portfolio</small></h2>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src='http://i.imgur.com/IDs0v0W.jpg' class='img-responsive img-rounded'>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src='http://i.imgur.com/IDs0v0W.jpg' class='img-responsive img-rounded'>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src='http://i.imgur.com/IDs0v0W.jpg' class='img-responsive img-rounded'>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src='http://i.imgur.com/IDs0v0W.jpg' class='img-responsive img-rounded'>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src='http://i.imgur.com/IDs0v0W.jpg' class='img-responsive img-rounded'>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <img src='http://i.imgur.com/IDs0v0W.jpg' class='img-responsive img-rounded'>
+            </div>
+        </div>
+        
+    </section>
+</div> <!-- End container -->
+ 
+<!-- End portfolio -->    
+
 <script src='https://code.jquery.com/jquery-2.2.0.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
 </body>
