@@ -1,0 +1,14 @@
+body {
+    margin: 0%;
+    background-color: #90C3D4;
+}
+.container{
+    width: 100%;
+    background-color: #90C3D4;
+}
+section {
+    margin:20%;
+}
+.jumbotron {
+    padding:5%;
+}
